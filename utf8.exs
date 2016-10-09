@@ -14,6 +14,7 @@
 
 # IO.puts inspect(?Ш, base: :binary)
 # IO.puts inspect(?愛, base: :binary)
+# IO.puts inspect(?💩, base: :binary)
 
 # BINARIES
 
@@ -56,7 +57,6 @@
 
 # IO.inspect Ascii.is_ascii_char?("a")
 # IO.inspect Ascii.is_ascii_char?(<< 0b10100001 >>)
-
 
 # The genius of UTF8:
 #
