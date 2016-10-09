@@ -24,11 +24,11 @@ defmodule UTF8Test do
   test "validate ASCII/UTF8" do
     bytes = [
       #   0xxxxxxx
-        0b00100000,                        # space
-        0b01010101,                        # U
-        0b01010011,                        # S
-        0b01000001,                        # A
-        0b00100000                        # space
+        0b00100000, # space
+        0b01010101, # U
+        0b01010011, # S
+        0b01000001, # A
+        0b00100000  # space
     ]
     assert UTF8.valid?(bytes)
   end
@@ -37,16 +37,16 @@ defmodule UTF8Test do
     bytes = [
       #   0xxxxxxx
       #   110xxxxx    10xxxxxx
-        0b11010000, 0b10111111,            # п
-        0b11010001, 0b10000000,            # р
-        0b11010000, 0b10111000,            # и
-        0b11010000, 0b10110010,            # в
-        0b11010000, 0b10110101,            # е
-        0b11010001, 0b10000010,            # т
-        0b00100000,                        # space
-        0b01010101,                        # U
-        0b01010011,                        # S
-        0b01000001                         # A
+        0b11010000, 0b10111111, # п
+        0b11010001, 0b10000000, # р
+        0b11010000, 0b10111000, # и
+        0b11010000, 0b10110010, # в
+        0b11010000, 0b10110101, # е
+        0b11010001, 0b10000010, # т
+        0b00100000,             # space
+        0b01010101,             # U
+        0b01010011,             # S
+        0b01000001              # A
     ]
     assert UTF8.valid?(bytes)
   end
@@ -92,7 +92,6 @@ defmodule UTF8Test do
         0b11100110, 0b10000100, 0b10011011,            # 愛
         0b00100000,                                    # space
         0b11110000, 0b10011111, 0b10010010, 0b10101001 # 💩
-
     ]
     assert UTF8.valid?(bytes)
   end
@@ -105,11 +104,11 @@ defmodule UTF8Test do
   test "extract ASCII/UTF8" do
     bytes = [
       #   0xxxxxxx
-        0b00100000,                        # space
-        0b01010101,                        # U
-        0b01010011,                        # S
-        0b01000001,                        # A
-        0b00100000                         # space
+        0b00100000, # space
+        0b01010101, # U
+        0b01010011, # S
+        0b01000001, # A
+        0b00100000  # space
     ]
     assert UTF8.extract_utf(bytes) == " USA "
   end
