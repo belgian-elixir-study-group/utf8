@@ -140,11 +140,11 @@ defmodule UTF8Test do
 
   test "try to find unicode codepoints among garbage" do
     bytes = [
-      0b10000000,                                    # this is a trailing byte in UTF8, it cannot start a codepoint
+      0b10000000,                                    # this is a continuation byte in UTF8, it cannot start a codepoint
       0b11010000, 0b10111111,                        # п
       0b11010001, 0b10000000,                        # р
       0b11010000, 0b10111000,                        # и
-      0b10000000,                                    # this is a trailing byte in UTF8, it cannot start a codepoint
+      0b10000000,                                    # this is a continuation byte in UTF8, it cannot start a codepoint
       0b11010000, 0b10110010,                        # в
       0b11010000,                                    # first byte of "е"
            0b11011111,                               # this byte starts a UTF8 codepoint, it cannot be here
